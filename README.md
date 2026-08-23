@@ -23,5 +23,6 @@ Or open the single-file dump:
 
 - 33 shop listings with search and category filters
 - Detail pages, 3D structure, compare, saved bookmarks, reconstitution calculator
+- My Progress Pics — personal before/after gallery (mobile-friendly grid)
 - Contact me: X (logo only) and Facebook under the referral box
 - No accounts — saved list stays on this device
