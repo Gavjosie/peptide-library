@@ -1,0 +1,66 @@
+[
+  {
+    "slug": "bpc-157",
+    "name": "BPC-157",
+    "fullName": "Body Protection Compound-157",
+    "abbreviations": ["BPC157", "BPC"],
+    "description": "Synthetic peptide derived from a protective protein in gastric juice. Studied for tissue repair, gut health, and recovery.",
+    "categories": ["healing"],
+    "researchAreas": ["tendon", "ligament", "gut", "muscle"],
+    "strength": "5mg / 10mg",
+    "form": "vial",
+    "molecularWeightDa": 1419.5,
+    "sequence": "GEPPPGKPADDAGLV",
+    "halfLife": "~4 hours",
+    "researchRanges": "200–500 mcg/day",
+    "approvalStatus": "research"
+  },
+  {
+    "slug": "tb-500",
+    "name": "TB-500",
+    "fullName": "Thymosin Beta-4 Fragment",
+    "abbreviations": ["TB500", "Thymosin Beta-4"],
+    "description": "Synthetic fragment of thymosin beta-4 researched for cell migration, flexibility, and wound recovery.",
+    "categories": ["healing"],
+    "researchAreas": ["recovery", "flexibility", "inflammation"],
+    "strength": "5mg / 10mg",
+    "form": "vial",
+    "approvalStatus": "research"
+  },
+  {
+    "slug": "cjc-1295",
+    "name": "CJC-1295",
+    "fullName": "CJC-1295 (with or without DAC)",
+    "abbreviations": ["CJC1295", "CJC"],
+    "description": "Modified GHRH analogue studied for growth hormone release and recovery.",
+    "categories": ["growth-hormone"],
+    "researchAreas": ["GH", "sleep", "recovery"],
+    "strength": "2mg / 5mg",
+    "form": "vial",
+    "approvalStatus": "research"
+  },
+  {
+    "slug": "ipamorelin",
+    "name": "Ipamorelin",
+    "fullName": "Ipamorelin",
+    "abbreviations": ["IPA"],
+    "description": "Selective growth hormone secretagogue with a clean pulse profile.",
+    "categories": ["growth-hormone"],
+    "researchAreas": ["GH", "recovery", "sleep"],
+    "strength": "5mg / 10mg",
+    "form": "vial",
+    "approvalStatus": "research"
+  },
+  {
+    "slug": "semaglutide",
+    "name": "Semaglutide",
+    "fullName": "Semaglutide",
+    "abbreviations": ["Sema", "Ozempic", "Wegovy"],
+    "description": "GLP-1 receptor agonist studied and approved for weight management and type 2 diabetes.",
+    "categories": ["metabolic"],
+    "researchAreas": ["weight loss", "metabolic", "appetite"],
+    "strength": "pen / vial",
+    "form": "pen",
+    "approvalStatus": "approved"
+  }
+]
