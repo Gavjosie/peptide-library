@@ -4,6 +4,7 @@
 @theme {
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
+
   --color-bg: #0b0d10;
   --color-bg-elevated: #12161c;
   --color-surface: #171c23;
@@ -18,6 +19,7 @@
   --color-warn: #c4a574;
   --color-danger: #c96b62;
   --color-ring: #3d9b8f;
+
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
   --radius-lg: 1rem;
@@ -26,13 +28,34 @@
 }
 
 @layer base {
-  html { background: var(--color-bg); color: var(--color-fg); }
-  body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-fg); min-height: 100dvh; overflow-x: hidden; }
-  button:not(:disabled), [role="button"]:not(:disabled) { cursor: pointer; }
+  html {
+    background: var(--color-bg);
+    color: var(--color-fg);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-fg);
+    min-height: 100dvh;
+    overflow-x: hidden;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
 }
 
-@utility font-display { font-family: var(--font-display); }
+@utility font-display {
+  font-family: var(--font-display);
+}
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

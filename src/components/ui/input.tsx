@@ -6,7 +6,7 @@ function Input({ className, type, ...props }: InputHTMLAttributes<HTMLInputEleme
     <input
       type={type}
       className={cn(
-        "flex h-11 w-full rounded-md bg-surface px-3 text-sm text-fg shadow-[var(--shadow-border)] transition-[box-shadow] duration-150 placeholder:text-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50",
+        "flex h-11 w-full rounded-md bg-surface px-3 text-sm text-fg ring-1 ring-border transition-shadow duration-200 placeholder:text-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}
       {...props}

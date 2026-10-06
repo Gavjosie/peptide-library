@@ -11,7 +11,7 @@ export const Route = createRootRoute({
       {
         name: "description",
         content:
-          "Educational catalogue of research peptides. Search, compare, save, and a reconstitution calculator.",
+          "Educational catalogue of research peptides. Search, compare, review, and a reconstitution calculator.",
       },
       { name: "theme-color", content: "#0b0d10" },
     ],

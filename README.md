@@ -10,9 +10,11 @@ Educational catalogue of the pens and vials currently listed on the shop (Gavjos
 ## App
 
 - Shop pens and vials, with search and category filters
-- Product pages, a schematic chain when a standard sequence exists, compare, and saved bookmarks
-- Community notes on each product (forum anecdotes, not a protocol)
+- Product pages, a schematic chain when a standard sequence exists, and compare
+- Review tab: anyone can leave a review as Anonymous, with an optional picture
+- Visit count
 - Reconstitution calculator (educational math only)
-- Shop tab, and a buy link on every product
+- Buy tab, and a buy link on every product
+- PayPal, Klarna, Clearpay, Google Pay and Apple Pay accepted
 
-No accounts. The saved list stays on this device.
+No accounts.

@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-const STORAGE_KEY = "peptide-library-v1";
+const STORAGE_KEY = "research-library-v1";
 export const COMPARE_LIMIT = 4;
 
 type LibraryState = {
@@ -15,12 +15,16 @@ type LibraryState = {
 
 function readStorage(): { favorites: string[]; compare: string[] } {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY);
+    const raw = localStorage.getItem(STORAGE_KEY) ?? localStorage.getItem("peptide-library-v1");
     if (!raw) return { favorites: [], compare: [] };
     const parsed = JSON.parse(raw) as { favorites?: unknown; compare?: unknown };
     return {
-      favorites: Array.isArray(parsed.favorites) ? parsed.favorites.filter((item): item is string => typeof item === "string") : [],
-      compare: Array.isArray(parsed.compare) ? parsed.compare.filter((item): item is string => typeof item === "string").slice(0, COMPARE_LIMIT) : [],
+      favorites: Array.isArray(parsed.favorites)
+        ? parsed.favorites.filter((item): item is string => typeof item === "string")
+        : [],
+      compare: Array.isArray(parsed.compare)
+        ? parsed.compare.filter((item): item is string => typeof item === "string").slice(0, COMPARE_LIMIT)
+        : [],
     };
   } catch {
     return { favorites: [], compare: [] };
@@ -29,7 +33,10 @@ function readStorage(): { favorites: string[]; compare: string[] } {
 
 function writeStorage(state: { favorites: string[]; compare: string[] }) {
   try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ favorites: state.favorites, compare: state.compare }));
+    localStorage.setItem(
+      STORAGE_KEY,
+      JSON.stringify({ favorites: state.favorites, compare: state.compare }),
+    );
   } catch {
     /* ignore quota */
   }
@@ -39,14 +46,25 @@ export const useLibraryStore = create<LibraryState>((set) => ({
   favorites: [],
   compare: [],
   hydrated: false,
-  toggleFavorite: (slug) => set((state) => ({ favorites: state.favorites.includes(slug) ? state.favorites.filter((item) => item !== slug) : [...state.favorites, slug] })),
-  toggleCompare: (slug) => set((state) => {
-    if (state.compare.includes(slug)) return { compare: state.compare.filter((item) => item !== slug) };
-    if (state.compare.length >= COMPARE_LIMIT) return state;
-    return { compare: [...state.compare, slug] };
-  }),
+  toggleFavorite: (slug) =>
+    set((state) => ({
+      favorites: state.favorites.includes(slug)
+        ? state.favorites.filter((item) => item !== slug)
+        : [...state.favorites, slug],
+    })),
+  toggleCompare: (slug) =>
+    set((state) => {
+      if (state.compare.includes(slug)) {
+        return { compare: state.compare.filter((item) => item !== slug) };
+      }
+      if (state.compare.length >= COMPARE_LIMIT) return state;
+      return { compare: [...state.compare, slug] };
+    }),
   clearCompare: () => set({ compare: [] }),
-  removeCompare: (slug) => set((state) => ({ compare: state.compare.filter((item) => item !== slug) })),
+  removeCompare: (slug) =>
+    set((state) => ({
+      compare: state.compare.filter((item) => item !== slug),
+    })),
 }));
 
 export function hydrateLibraryStore() {
@@ -58,6 +76,8 @@ export function hydrateLibraryStore() {
 
 if (typeof window !== "undefined") {
   useLibraryStore.subscribe((state) => {
-    if (state.hydrated) writeStorage({ favorites: state.favorites, compare: state.compare });
+    if (state.hydrated) {
+      writeStorage({ favorites: state.favorites, compare: state.compare });
+    }
   });
 }

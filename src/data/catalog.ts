@@ -56,7 +56,7 @@ export const catalog: Peptide[] = [
     fullName: "5-Amino-1MQ 50mg vial",
     abbreviations: ["5A1MQ"],
     description:
-      "Small molecule studied for interaction with nicotinamide N-methyltransferase. The shop lists a 50 mg research vial.",
+      "Small molecule studied for interaction with nicotinamide N-methyltransferase. The listing is a 50 mg research vial.",
     categories: ["metabolic"],
     researchAreas: ["NNMT", "metabolic research"],
     strength: "50 mg",
@@ -66,7 +66,7 @@ export const catalog: Peptide[] = [
     fullName: "Kisspeptin 10mg vial",
     abbreviations: ["KP"],
     description:
-      "Peptide used in reproductive endocrinology research, including hypothalamic signalling. Shop listing is a 10 mg vial.",
+      "Peptide used in reproductive endocrinology research, including hypothalamic signalling. To buy: a 10 mg vial.",
     categories: ["sexual-health"],
     researchAreas: ["GnRH", "reproductive research"],
     strength: "10 mg",
@@ -78,7 +78,7 @@ export const catalog: Peptide[] = [
     fullName: "PT-141 10mg vial",
     abbreviations: ["Bremelanotide"],
     description:
-      "Synthetic melanocortin-receptor agonist. This shop listing is the 10 mg vial, separate from any pen.",
+      "Synthetic melanocortin-receptor agonist. This is the 10 mg vial, separate from any pen.",
     categories: ["sexual-health"],
     researchAreas: ["melanocortin"],
     strength: "10 mg",
@@ -111,7 +111,7 @@ export const catalog: Peptide[] = [
     fullName: "DSIP 5mg vial",
     abbreviations: ["Delta sleep-inducing peptide"],
     description:
-      "Neuropeptide studied for sleep and stress signalling. Shop listing is a 5 mg vial.",
+      "Neuropeptide studied for sleep and stress signalling. To buy: a 5 mg vial.",
     categories: ["cognitive"],
     researchAreas: ["sleep research"],
     strength: "5 mg",
@@ -122,7 +122,7 @@ export const catalog: Peptide[] = [
     fullName: "KPV 10mg vial",
     abbreviations: ["Lys-Pro-Val"],
     description:
-      "Tripeptide fragment of alpha-MSH, studied around inflammatory signalling. Shop listing is a 10 mg vial.",
+      "Tripeptide fragment of alpha-MSH, studied around inflammatory signalling. To buy: a 10 mg vial.",
     categories: ["healing", "immune"],
     researchAreas: ["inflammation"],
     strength: "10 mg",
@@ -133,7 +133,7 @@ export const catalog: Peptide[] = [
     fullName: "Eloralintide 10mg vial",
     abbreviations: [],
     description:
-      "Investigational peptide explored in metabolic and endocrine research. Shop listing is a 10 mg vial.",
+      "Investigational peptide explored in metabolic and endocrine research. To buy: a 10 mg vial.",
     categories: ["metabolic"],
     researchAreas: ["metabolic research"],
     strength: "10 mg",
@@ -165,14 +165,14 @@ export const catalog: Peptide[] = [
       "Growth-hormone research preparation. Sold as a 31 IU vial in bundles of 1, 3, 5, or 10.",
     categories: ["growth-hormone"],
     researchAreas: ["GH / IGF-1 axis"],
-    strength: "31 IU \u00b7 bundles of 1, 3, 5, or 10",
+    strength: "31 IU · bundles of 1, 3, 5, or 10",
     form: "vial",
   }),
   item("nad-500mg-vial", "NAD+", {
     fullName: "NAD+ 500mg vial",
     abbreviations: ["Nicotinamide adenine dinucleotide"],
     description:
-      "Coenzyme used in lab work on cellular energy, redox, and mitochondrial pathways. Shop listing is a 500 mg vial.",
+      "Coenzyme used in lab work on cellular energy, redox, and mitochondrial pathways. To buy: a 500 mg vial.",
     categories: ["anti-aging", "other"],
     researchAreas: ["mitochondria", "redox"],
     strength: "500 mg",
@@ -182,7 +182,7 @@ export const catalog: Peptide[] = [
     fullName: "Bacteriostatic water 10ml vial",
     abbreviations: ["BAC"],
     description:
-      "Diluent vial, not a peptide. Listed because it is a 10 ml vial on the same shop.",
+      "Diluent vial, not a peptide. Listed because it is a 10 ml vial to buy.",
     categories: ["other"],
     researchAreas: ["diluent"],
     strength: "10 ml",
@@ -210,7 +210,7 @@ export const catalog: Peptide[] = [
   item("ghk-cu-100mg-vial", "GHK-Cu", {
     fullName: "GHK-Cu 100mg vial",
     abbreviations: ["Copper peptide"],
-    description: "Copper-binding tripeptide. Shop listing is a 100 mg vial, separate from the 120 mg pen.",
+    description: "Copper-binding tripeptide. To buy: a 100 mg vial, separate from the 120 mg pen.",
     categories: ["skin", "healing"],
     researchAreas: ["skin", "copper peptide"],
     strength: "100 mg",
@@ -230,7 +230,7 @@ export const catalog: Peptide[] = [
   item("mt1-10mg-vial", "Melanotan I", {
     fullName: "MT1 10mg vial",
     abbreviations: ["MT-1", "Afamelanotide analogue"],
-    description: "Melanocortin peptide related to melanotan I. Shop listing is a 10 mg vial.",
+    description: "Melanocortin peptide related to melanotan I. To buy: a 10 mg vial.",
     categories: ["skin"],
     researchAreas: ["melanocortin"],
     strength: "10 mg",
@@ -280,7 +280,7 @@ export const catalog: Peptide[] = [
   item("selank-10mg-vial", "Selank", {
     fullName: "Selank 10mg vial",
     abbreviations: ["TP-7"],
-    description: "Tuftsin-related heptapeptide studied in anxiety and immune models. Shop listing is a 10 mg vial.",
+    description: "Tuftsin-related heptapeptide studied in anxiety and immune models. To buy: a 10 mg vial.",
     categories: ["cognitive", "immune"],
     researchAreas: ["anxiety models"],
     strength: "10 mg",
@@ -290,7 +290,7 @@ export const catalog: Peptide[] = [
   item("semax-10mg-vial", "Semax", {
     fullName: "Semax 10mg vial",
     abbreviations: ["MEHFPGP"],
-    description: "ACTH-fragment analogue studied in attention and neuro models. Shop listing is a 10 mg vial.",
+    description: "ACTH-fragment analogue studied in attention and neuro models. To buy: a 10 mg vial.",
     categories: ["cognitive"],
     researchAreas: ["attention"],
     strength: "10 mg",
@@ -301,7 +301,7 @@ export const catalog: Peptide[] = [
     fullName: "30mg Retatrutid pen",
     abbreviations: ["Retatrutid"],
     description:
-      "Ready-to-use research pen. Shop states 30 mg retatrutide and 99.54% HPLC purity.",
+      "Ready-to-use research pen. To buy: 30 mg retatrutide and 99.54% HPLC purity.",
     categories: ["metabolic"],
     researchAreas: ["metabolic research"],
     strength: "30 mg",
@@ -310,7 +310,7 @@ export const catalog: Peptide[] = [
   item("60mg-retatrutid-pen", "Retatrutide", {
     fullName: "60mg Retatrutid pen",
     abbreviations: ["Retatrutid"],
-    description: "Ready-to-use research pen. Shop states 60 mg retatrutide and 99.54% HPLC purity.",
+    description: "Ready-to-use research pen. To buy: 60 mg retatrutide and 99.54% HPLC purity.",
     categories: ["metabolic"],
     researchAreas: ["metabolic research"],
     strength: "60 mg",
@@ -319,7 +319,7 @@ export const catalog: Peptide[] = [
   item("40mg-tirzepatid-pen-2", "Tirzepatide", {
     fullName: "40mg Tirzepatid pen",
     abbreviations: ["Tirzepatid"],
-    description: "Ready-to-use research pen. Shop states 40 mg tirzepatide and 99%+ purity.",
+    description: "Ready-to-use research pen. To buy: 40 mg tirzepatide and 99%+ purity.",
     categories: ["metabolic"],
     researchAreas: ["incretin"],
     strength: "40 mg",
@@ -328,7 +328,7 @@ export const catalog: Peptide[] = [
   item("60mg-tirzepatid-pen", "Tirzepatide", {
     fullName: "60mg Tirzepatid pen",
     abbreviations: ["Tirzepatid"],
-    description: "Ready-to-use research pen. Shop states 60 mg tirzepatide and 99%+ purity.",
+    description: "Ready-to-use research pen. To buy: 60 mg tirzepatide and 99%+ purity.",
     categories: ["metabolic"],
     researchAreas: ["incretin"],
     strength: "60 mg",
@@ -337,7 +337,7 @@ export const catalog: Peptide[] = [
   item("5mg-cagri-pen", "Cagrilintide", {
     fullName: "5mg Cagri pen",
     abbreviations: ["Cagri"],
-    description: "Ready-to-use research pen. Shop states 5 mg cagrilintide and 99%+ purity.",
+    description: "Ready-to-use research pen. To buy: 5 mg cagrilintide and 99%+ purity.",
     categories: ["metabolic"],
     researchAreas: ["amylin"],
     strength: "5 mg",
@@ -346,12 +346,12 @@ export const catalog: Peptide[] = [
   item("10mg-mt2-pen-copy", "Melanotan II", {
     fullName: "10mg MT2 pen",
     abbreviations: ["MT-2"],
-    description: "Ready-to-use research pen. Shop states 10 mg melanotan II and 99%+ purity. Sale price is \u00a399.75.",
+    description: "Ready-to-use research pen. To buy: 10 mg melanotan II and 99%+ purity. Sale price is £99.75.",
     categories: ["skin", "sexual-health"],
     researchAreas: ["melanocortin"],
     strength: "10 mg",
     form: "pen",
-    notes: "Was \u00a3105. Current shop price is \u00a399.75.",
+    notes: "Was £105. Current buy price is £99.75.",
   }),
   item("150mg-ghk-cu-pen", "GHK-Cu", {
     fullName: "120mg GHK-CU pen",
@@ -368,7 +368,7 @@ export const catalog: Peptide[] = [
     fullName: "MOTS-c 15mg pen",
     abbreviations: ["MOTS"],
     description:
-      "Ready-to-use research pen. The shop description says the contents are MOTS-c 15 mg, even though the page address says 20 mg.",
+      "Ready-to-use research pen. The buy page says the contents are MOTS-c 15 mg, even though the page address says 20 mg.",
     categories: ["metabolic", "anti-aging"],
     researchAreas: ["mitochondria"],
     strength: "15 mg",
@@ -379,7 +379,7 @@ export const catalog: Peptide[] = [
     fullName: "Tesamorelin 10 mg pen",
     abbreviations: ["GHRH analogue"],
     description:
-      "Ready-to-use research pen. The shop description says the contents are tesamorelin 10 mg, even though the page address says 20 mg.",
+      "Ready-to-use research pen. The buy page says the contents are tesamorelin 10 mg, even though the page address says 20 mg.",
     categories: ["growth-hormone"],
     researchAreas: ["GH axis"],
     strength: "10 mg",

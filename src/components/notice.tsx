@@ -5,14 +5,13 @@ export function EducationalNotice({ compact = false }: { compact?: boolean }) {
   return (
     <aside
       role="note"
-      className={
-        compact
-          ? "rounded-xl bg-bg-elevated px-3 py-2.5 text-xs leading-relaxed text-muted shadow-[var(--shadow-border)]"
-          : "rounded-2xl bg-bg-elevated px-5 py-4 text-sm leading-relaxed text-muted shadow-[var(--shadow-border)]"
-      }
+      className={cn(
+        "rounded-2xl bg-bg-elevated px-5 py-4 text-sm leading-relaxed text-muted ring-1 ring-border",
+        compact && "rounded-xl px-3 py-2.5 text-xs",
+      )}
     >
-      <p className="text-xs font-medium tracking-[0.16em] text-subtle uppercase">Educational notice</p>
-      <p className={cn(compact ? "mt-1" : "mt-2")}>{EDUCATIONAL_NOTICE}</p>
+      <p className="text-xs font-medium tracking-widest text-subtle uppercase">Educational notice</p>
+      <p className={compact ? "mt-1" : "mt-2"}>{EDUCATIONAL_NOTICE}</p>
     </aside>
   );
 }
