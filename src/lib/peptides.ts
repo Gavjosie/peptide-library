@@ -1,6 +1,6 @@
-import catalog from "@/data/peptides.json";
+import { catalog } from "@/data/catalog";
 
-export type PeptideForm = "pen" | "vial";
+export type PeptideForm = "pen" | "vial" | "topical" | "other";
 export type ApprovalStatus = "research" | "mixed" | "approved";
 
 export type CategoryId =
@@ -25,28 +25,30 @@ export type Peptide = {
   strength?: string;
   form?: PeptideForm;
   molecularWeightDa?: number;
-  formula?: string;
   sequence?: string;
+  /** Standard one-letter chain safe to draw. Omit when the real sequence has unusual residues. */
   structureSequence?: string;
   sequenceNote?: string;
   halfLife?: string;
-  researchRanges?: string;
   notes?: string;
+  caution?: string;
   casNumber?: string;
-  communityUse?: string;
   approvalStatus?: ApprovalStatus;
-  pubchemCid?: number;
+  productUrl?: string;
+  inStock?: boolean;
+  /** Anecdotes from public forums. Not a protocol. */
+  community?: string;
 };
 
 export const CATEGORIES: { id: CategoryId; label: string; short: string }[] = [
-  { id: "healing", label: "Healing & Recovery", short: "Healing" },
-  { id: "growth-hormone", label: "Growth Hormone", short: "GH related" },
-  { id: "metabolic", label: "Weight Loss / Metabolic", short: "Metabolic" },
-  { id: "cognitive", label: "Cognitive / Nootropic", short: "Cognitive" },
-  { id: "anti-aging", label: "Anti-aging", short: "Anti-aging" },
+  { id: "healing", label: "Healing & recovery", short: "Healing" },
+  { id: "growth-hormone", label: "Growth hormone", short: "GH related" },
+  { id: "metabolic", label: "Metabolic", short: "Metabolic" },
+  { id: "cognitive", label: "Cognitive", short: "Cognitive" },
+  { id: "anti-aging", label: "Anti-aging research", short: "Anti-aging" },
   { id: "immune", label: "Immune", short: "Immune" },
-  { id: "sexual-health", label: "Sexual Health", short: "Sexual" },
-  { id: "skin", label: "Skin & Beauty", short: "Skin" },
+  { id: "sexual-health", label: "Sexual health", short: "Sexual" },
+  { id: "skin", label: "Skin", short: "Skin" },
   { id: "other", label: "Other", short: "Other" },
 ];
 
@@ -54,7 +56,13 @@ export const CATEGORY_MAP = Object.fromEntries(
   CATEGORIES.map((c) => [c.id, c]),
 ) as Record<CategoryId, (typeof CATEGORIES)[number]>;
 
-export const PEPTIDES = catalog as Peptide[];
+export const STATUS_LABEL: Record<ApprovalStatus, string> = {
+  research: "Research",
+  mixed: "Mixed record",
+  approved: "Approved product",
+};
+
+export const PEPTIDES: Peptide[] = catalog;
 
 export const PEPTIDE_BY_SLUG = Object.fromEntries(
   PEPTIDES.map((p) => [p.slug, p]),
@@ -62,6 +70,20 @@ export const PEPTIDE_BY_SLUG = Object.fromEntries(
 
 export function getPeptide(slug: string) {
   return PEPTIDE_BY_SLUG[slug];
+}
+
+export function relatedPeptides(peptide: Peptide, limit = 3) {
+  return PEPTIDES.filter(
+    (other) =>
+      other.slug !== peptide.slug &&
+      other.categories.some((id) => peptide.categories.includes(id)),
+  ).slice(0, limit);
+}
+
+export function drawableSequence(peptide: Peptide) {
+  const raw = (peptide.structureSequence ?? peptide.sequence ?? "").replace(/[^A-Za-z]/g, "");
+  if (!raw || !/^[ACDEFGHIKLMNPQRSTVWY]+$/i.test(raw)) return "";
+  return raw.toUpperCase();
 }
 
 export function searchText(peptide: Peptide) {
@@ -72,13 +94,14 @@ export function searchText(peptide: Peptide) {
     peptide.description,
     peptide.researchAreas.join(" "),
     peptide.notes ?? "",
-    peptide.communityUse ?? "",
+    peptide.caution ?? "",
     peptide.strength ?? "",
     peptide.form ?? "",
     peptide.casNumber ?? "",
+    peptide.community ?? "",
     peptide.sequence ?? "",
     peptide.structureSequence ?? "",
-    peptide.categories.join(" "),
+    peptide.categories.map((id) => CATEGORY_MAP[id]?.label ?? id).join(" "),
   ]
     .join(" ")
     .toLowerCase();
@@ -90,10 +113,52 @@ export function formatMass(value: number) {
     : value.toLocaleString(undefined, { maximumFractionDigits: 1 });
 }
 
-export const SHOP_URL = "https://getpptidepen.com/?aff=127";
-
-export const EDUCATIONAL_NOTICE =
-  "This app is for educational and research purposes only. It is not medical advice. Peptides may be unregulated in many places. Always consult a qualified professional.";
-
+export const SHOP_URL = "https://getpeppens.com/?aff=127";
 export const X_URL = "https://x.com/Gavjosie";
 export const FACEBOOK_URL = "https://www.facebook.com/Gavjosie";
+
+export const EDUCATIONAL_NOTICE =
+  "Educational catalogue only — not medical advice, not a dosing guide, and not a recommendation to buy or use any compound. Many entries are unapproved research chemicals. Talk to a qualified clinician before any health decision.";
+
+export const RESIDUE_GROUPS = [
+  {
+    id: "hydrophobic",
+    label: "Hydrophobic",
+    letters: "AVILMFWP",
+    className: "bg-accent/20 text-accent-soft",
+    color: "#3d9b8f",
+  },
+  {
+    id: "polar",
+    label: "Polar",
+    letters: "STYNQ",
+    className: "bg-surface text-fg",
+    color: "#8b949e",
+  },
+  {
+    id: "positive",
+    label: "Positive",
+    letters: "KRH",
+    className: "bg-accent-soft/15 text-accent-soft",
+    color: "#5eead4",
+  },
+  {
+    id: "negative",
+    label: "Negative",
+    letters: "DE",
+    className: "bg-warn/15 text-warn",
+    color: "#c4a574",
+  },
+  {
+    id: "special",
+    label: "Special",
+    letters: "GC",
+    className: "bg-danger/15 text-danger",
+    color: "#c96b62",
+  },
+] as const;
+
+export function residueGroup(letter: string) {
+  const upper = letter.toUpperCase();
+  return RESIDUE_GROUPS.find((group) => group.letters.includes(upper)) ?? RESIDUE_GROUPS[1];
+}
