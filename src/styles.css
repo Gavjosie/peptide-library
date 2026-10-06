@@ -1,12 +1,9 @@
-@import "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@400;500;600&display=swap";
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @theme {
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   --font-display: "Instrument Serif", ui-serif, Georgia, "Times New Roman", serif;
-
   --color-bg: #0b0d10;
   --color-bg-elevated: #12161c;
   --color-surface: #171c23;
@@ -21,37 +18,21 @@
   --color-warn: #c4a574;
   --color-danger: #c96b62;
   --color-ring: #3d9b8f;
-
-  --radius-xs: 4px;
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --radius-2xl: 32px;
-
-  --shadow-border: 0 0 0 1px #ffffff14;
-  --shadow-border-hover: 0 0 0 1px #ffffff21;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+  --radius-2xl: 1.5rem;
 }
 
 @layer base {
-  html {
-    background: var(--color-bg);
-    color: var(--color-fg);
-  }
-
-  body {
-    font-family: var(--font-sans);
-    background: var(--color-bg);
-    color: var(--color-fg);
-    min-height: 100dvh;
-  }
-
-  button:not(:disabled),
-  [role="button"]:not(:disabled) {
-    cursor: pointer;
-  }
+  html { background: var(--color-bg); color: var(--color-fg); }
+  body { font-family: var(--font-sans); background: var(--color-bg); color: var(--color-fg); min-height: 100dvh; overflow-x: hidden; }
+  button:not(:disabled), [role="button"]:not(:disabled) { cursor: pointer; }
 }
 
-@utility font-display {
-  font-family: var(--font-display);
+@utility font-display { font-family: var(--font-display); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
