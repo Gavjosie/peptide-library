@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { Bookmark, Columns2 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { CATEGORY_MAP, type Peptide } from "@/lib/peptides";
+import { CATEGORY_MAP, shopProductUrl, type Peptide } from "@/lib/peptides";
 import { COMPARE_LIMIT, useLibraryStore } from "@/lib/store";
 import { cn } from "@/lib/utils";
 
@@ -71,7 +71,7 @@ export function PeptideCard({ peptide }: { peptide: Peptide }) {
       <ProductPills peptide={peptide} />
       {peptide.productUrl && (
         <a
-          href={peptide.productUrl}
+          href={shopProductUrl(peptide.slug)}
           target="_blank"
           rel="noreferrer"
           className="relative z-20 mt-3 inline-flex text-sm font-medium text-accent-soft hover:underline"

@@ -3,6 +3,7 @@ import { Columns2, FlaskConical, Library, MessageSquare, ShoppingBag } from "luc
 import { useEffect, useState } from "react";
 import { ShopFooter } from "@/components/referral";
 import { hydrateLibraryStore, useLibraryStore } from "@/lib/store";
+import { SHOP_URL } from "@/lib/peptides";
 import { recordVisit } from "@/lib/visits.functions";
 import { cn } from "@/lib/utils";
 
@@ -122,6 +123,20 @@ export function AppShell() {
           {NAV.map((item) => {
             const Icon = item.icon;
             const count = hydrated && item.to === "/compare" ? compare.length : 0;
+            if (item.to === "/shop") {
+              return (
+                <a
+                  key={item.to}
+                  href={SHOP_URL}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex min-h-14 flex-col items-center justify-center gap-0.5 text-xs text-muted"
+                >
+                  <Icon className="size-5" />
+                  {item.label}
+                </a>
+              );
+            }
             return (
               <Link
                 key={item.to}

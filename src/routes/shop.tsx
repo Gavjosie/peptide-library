@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { ProductPills } from "@/components/peptide-card";
 import { ShopReferral } from "@/components/referral";
 import { Button } from "@/components/ui/button";
-import { PEPTIDES, SHOP_URL, type Peptide } from "@/lib/peptides";
+import { PEPTIDES, shopProductUrl, SHOP_URL, type Peptide } from "@/lib/peptides";
 
 export const Route = createFileRoute("/shop")({
   component: ShopPage,
@@ -67,7 +67,7 @@ function ProductGroup({ title, products }: { title: string; products: Peptide[] 
             <ProductPills peptide={peptide} />
             {peptide.productUrl && (
               <a
-                href={peptide.productUrl}
+                href={shopProductUrl(peptide.slug)}
                 target="_blank"
                 rel="noreferrer"
                 className="relative z-20 mt-3 inline-flex text-sm font-medium text-accent-soft hover:underline"

@@ -10,6 +10,7 @@ import {
   drawableSequence,
   formatMass,
   getPeptide,
+  shopProductUrl,
   STATUS_LABEL,
 } from "@/lib/peptides";
 import { COMPARE_LIMIT, useLibraryStore } from "@/lib/store";
@@ -144,9 +145,6 @@ function PeptideDetail() {
         <section className="max-w-3xl rounded-2xl bg-bg-elevated p-5 ring-1 ring-border">
           <h2 className="text-xs font-medium tracking-widest text-subtle uppercase">What the community says</h2>
           <p className="mt-2 text-sm leading-relaxed text-fg">{peptide.community}</p>
-          <p className="mt-3 text-xs leading-relaxed text-subtle">
-            Forum anecdotes only. Not a protocol, not a result you should expect, and not medical advice.
-          </p>
         </section>
       )}
       {peptide.caution && (
@@ -157,7 +155,7 @@ function PeptideDetail() {
 
       <p className="text-sm">
         {peptide.productUrl && (
-          <a href={peptide.productUrl} target="_blank" rel="noreferrer" className="text-accent-soft hover:underline">
+          <a href={shopProductUrl(peptide.slug)} target="_blank" rel="noreferrer" className="text-accent-soft hover:underline">
             Buy {peptide.name}
           </a>
         )}

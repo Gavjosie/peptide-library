@@ -114,6 +114,11 @@ export function formatMass(value: number) {
 }
 
 export const SHOP_URL = "https://getpeppens.com/?aff=127";
+
+/** Affiliate visit first (`?aff=127`), landing on that exact product. */
+export function shopProductUrl(slug: string) {
+  return `https://getpeppens.com/product/${slug}/?aff=127`;
+}
 export const X_URL = "https://x.com/Gavjosie";
 export const FACEBOOK_URL = "https://www.facebook.com/Gavjosie";
 
